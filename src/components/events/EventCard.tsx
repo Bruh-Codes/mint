@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 interface EventCardProps {
   image: string;
@@ -58,12 +59,13 @@ export function EventCard({
               />
             ))}
           </div>
-          <button 
+          <Button 
             onClick={handleManageClick}
-            className="px-4 py-2 text-sm text-primary hover:bg-primary/10 rounded-md transition-colors"
+            variant="outline"
+            size="sm"
           >
             Register
-          </button>
+          </Button>
         </div>
       </div>
     </article>
