@@ -35,26 +35,14 @@ export function Navigation() {
             >
               Profiles
             </Link>
-            <Link
-              to="/connect"
-              className="text-gray-600 hover:text-primary transition-colors"
-            >
-              Connect
-            </Link>
           </div>
 
           <div className="hidden lg:flex items-center space-x-4">
             <Link
-              to="/events"
-              className="text-gray-600 hover:text-primary transition-colors"
-            >
-              Events
-            </Link>
-            <Link
-              to="/create-event"
+              to="/connect"
               className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
             >
-              Create Event
+              Connect
             </Link>
           </div>
         </div>
