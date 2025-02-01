@@ -62,7 +62,7 @@ export function EventCard({
             onClick={handleManageClick}
             className="px-4 py-2 text-sm text-primary hover:bg-primary/10 rounded-md transition-colors"
           >
-            Manage Event
+            Register
           </button>
         </div>
       </div>
