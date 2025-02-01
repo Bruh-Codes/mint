@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
 
 interface EventCardProps {
   image: string;
@@ -19,6 +20,12 @@ export function EventCard({
   description,
   className,
 }: EventCardProps) {
+  const navigate = useNavigate();
+
+  const handleManageClick = () => {
+    navigate("/register");
+  };
+
   return (
     <article className={cn("bg-white rounded-lg shadow-md overflow-hidden", className)}>
       <div className="relative">
@@ -51,7 +58,10 @@ export function EventCard({
               />
             ))}
           </div>
-          <button className="px-4 py-2 text-sm text-primary hover:bg-primary/10 rounded-md transition-colors">
+          <button 
+            onClick={handleManageClick}
+            className="px-4 py-2 text-sm text-primary hover:bg-primary/10 rounded-md transition-colors"
+          >
             Manage Event
           </button>
         </div>
