@@ -22,13 +22,33 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
 const formSchema = z.object({
-	blockchainKnowledge: z.string(),
+	blockchainKnowledge: z
+		.string({
+			required_error: "Please select your knowledge level",
+		})
+		.min(1, "Please select your knowledge level"),
 	message: z.string(),
 	enrollmentNumber: z.string().optional(),
-	college: z.string(),
-	branch: z.string(),
-	yearOfStudy: z.string(),
-	socialHandle: z.string(),
+	college: z
+		.string({
+			required_error: "College name is required",
+		})
+		.min(1, "College name is required"),
+	branch: z
+		.string({
+			required_error: "Branch is required",
+		})
+		.min(1, "Branch is required"),
+	yearOfStudy: z
+		.string({
+			required_error: "Year of study is required",
+		})
+		.min(1, "Year of study is required"),
+	socialHandle: z
+		.string({
+			required_error: "Social handle is required",
+		})
+		.min(1, "Social handle is required"),
 });
 
 export function EventRegistrationForm() {
@@ -101,7 +121,13 @@ export function EventRegistrationForm() {
 												onValueChange={field.onChange}
 												defaultValue={field.value}
 											>
-												<FormControl>
+												<FormControl
+													className={
+														form.formState.errors.blockchainKnowledge
+															? "border-red-500"
+															: ""
+													}
+												>
 													<SelectTrigger>
 														<SelectValue placeholder="Select your knowledge level" />
 													</SelectTrigger>
@@ -128,7 +154,14 @@ export function EventRegistrationForm() {
 												Say something
 											</FormLabel>
 											<FormControl>
-												<Input {...field} />
+												<Input
+													{...field}
+													className={
+														form.formState.errors.message
+															? "border-red-500"
+															: ""
+													}
+												/>
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -144,7 +177,15 @@ export function EventRegistrationForm() {
 												If you are from IIT Madras ? Share enrollment number
 											</FormLabel>
 											<FormControl>
-												<Input {...field} placeholder="Enrollment number" />
+												<Input
+													{...field}
+													placeholder="Enrollment number"
+													className={
+														form.formState.errors.enrollmentNumber
+															? "border-red-500"
+															: ""
+													}
+												/>
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -160,7 +201,15 @@ export function EventRegistrationForm() {
 												College
 											</FormLabel>
 											<FormControl>
-												<Input {...field} placeholder="College name" />
+												<Input
+													{...field}
+													placeholder="College name"
+													className={
+														form.formState.errors.college
+															? "border-red-500"
+															: ""
+													}
+												/>
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -176,7 +225,13 @@ export function EventRegistrationForm() {
 												Branch
 											</FormLabel>
 											<FormControl>
-												<Input {...field} placeholder="Course branch" />
+												<Input
+													{...field}
+													placeholder="Course branch"
+													className={
+														form.formState.errors.branch ? "border-red-500" : ""
+													}
+												/>
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -195,7 +250,13 @@ export function EventRegistrationForm() {
 												onValueChange={field.onChange}
 												defaultValue={field.value}
 											>
-												<FormControl>
+												<FormControl
+													className={
+														form.formState.errors.yearOfStudy
+															? "border-red-500"
+															: ""
+													}
+												>
 													<SelectTrigger>
 														<SelectValue placeholder="Select year" />
 													</SelectTrigger>
@@ -221,7 +282,15 @@ export function EventRegistrationForm() {
 												Twitter or Other Social Handle
 											</FormLabel>
 											<FormControl>
-												<Input {...field} placeholder="Username" />
+												<Input
+													{...field}
+													placeholder="Username"
+													className={
+														form.formState.errors.socialHandle
+															? "border-red-500"
+															: ""
+													}
+												/>
 											</FormControl>
 											<FormMessage />
 										</FormItem>
