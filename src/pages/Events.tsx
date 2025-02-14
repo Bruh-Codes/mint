@@ -6,9 +6,7 @@ import { EventHeader } from "@/components/events/EventHeader";
 const Events = () => {
 	return (
 		<div className="min-h-screen bg-cream">
-			{/* <Navigation /> */}
 			<EventHeader />
-
 			<main className="container md:max-w-5xl mx-auto px-4 py-8">
 				<header className="mb-8 flex justify-between items-center">
 					<h1 className="text-3xl font-bold text-gray-900">Featured Events</h1>
